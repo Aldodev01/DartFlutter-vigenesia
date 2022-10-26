@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
                   ),
                   FormBuilderTextField(
                     obscureText:
-                        true, // <-- Buat bikin setiap inputan jadi bintang " * "
+                        true, // <-- Buat bikin setiap inputan jadi bintang "*"
                     name: "password",
                     controller: passwordController,
                     decoration: InputDecoration(
