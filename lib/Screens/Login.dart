@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:vigenesia/Constant/const.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
@@ -133,26 +135,40 @@ class _LoginState extends State<Login> {
                                                 setState(() {
                                                   nama = value?.data?.nama;
                                                   Navigator.pushReplacement(
-                                                      context,
-                                                      new MaterialPageRoute(
-                                                          builder: (BuildContext
-                                                                  context) =>
-                                                              new MainScreens(
-                                                                  nama: nama)));
+                                                    context,
+                                                    new MaterialPageRoute(
+                                                      builder: (BuildContext
+                                                              context) =>
+                                                          new MainScreens(
+                                                              nama: nama),
+                                                    ),
+                                                  );
                                                 })
                                               }
                                             else if (value == null)
                                               {
                                                 Flushbar(
                                                   message:
-                                                      "Check Your Email / Password",
+                                                      "Login Success, Welcome" +
+                                                          emailController.text,
                                                   duration:
-                                                      Duration(seconds: 5),
+                                                      Duration(seconds: 3),
                                                   backgroundColor:
-                                                      Colors.redAccent,
+                                                      Colors.greenAccent,
                                                   flushbarPosition:
                                                       FlushbarPosition.TOP,
-                                                ).show(context)
+                                                ).show(context),
+                                                //
+                                                Timer(
+                                                  Duration(seconds: 3),
+                                                  () => Navigator.of(context)
+                                                      .push(
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const MainScreens(),
+                                                    ),
+                                                  ),
+                                                )
                                               }
                                           });
                                 },

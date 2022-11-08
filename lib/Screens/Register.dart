@@ -79,7 +79,10 @@ class _RegisterState extends State<Register> {
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
                         onPressed: () async {
-                          print("blok");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
+                          );
                         },
                         child: Text("Daftar")),
                   ),

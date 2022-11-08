@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:vigenesia/Screens/EditPage.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class _MainScreensState extends State<MainScreens> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Hallo ${widget.nama}",
+                          "Hallo",
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.w500),
                         ),
@@ -71,7 +72,14 @@ class _MainScreensState extends State<MainScreens> {
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           onPressed: () async {
-                            print("Sukses");
+                            Timer(
+                              Duration(seconds: 2),
+                              () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const EditPage(),
+                                ),
+                              ),
+                            );
                           },
                           child: Text("Submit")),
                     ),
@@ -81,7 +89,15 @@ class _MainScreensState extends State<MainScreens> {
                     TextButton(
                       child: Icon(Icons.refresh),
                       onPressed: () {
-// _getData();
+                        Timer(
+                          Duration(seconds: 3),
+                          () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const Login(),
+                            ),
+                          ),
+                        );
+                        // _getData();
                       },
                     ),
                   ]),

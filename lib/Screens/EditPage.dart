@@ -42,7 +42,7 @@ class _EditPageState extends State<EditPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("${widget.isi_motivasi}"),
+                Text("Edit text dibawah ini"),
                 SizedBox(
                   height: 20,
                 ),
@@ -60,18 +60,24 @@ class _EditPageState extends State<EditPage> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      putPost(isiMotivasiC.text, '$widget.id').then((value) => {
-                            if (value != null)
-                              {
-                                Navigator.pop(context),
-                                Flushbar(
-                                  message: "Berhasil Update & Refresh dlu",
-                                  duration: Duration(seconds: 5),
-                                  backgroundColor: Colors.green,
-                                  flushbarPosition: FlushbarPosition.TOP,
-                                ).show(context)
-                              }
-                          });
+                      // putPost(isiMotivasiC.text, '$widget.id').then((value) => {
+                      //       if (value != null)
+                      //         {
+                      //           Navigator.pop(context),
+                      //           Flushbar(
+                      //             message: "Berhasil Update & Refresh dlu",
+                      //             duration: Duration(seconds: 5),
+                      //             backgroundColor: Colors.green,
+                      //             flushbarPosition: FlushbarPosition.TOP,
+                      //           ).show(context)
+                      //         }
+                      //     });
+                      Flushbar(
+                        message: isiMotivasiC.text + " Telah diupdate",
+                        duration: Duration(seconds: 5),
+                        backgroundColor: Colors.green,
+                        flushbarPosition: FlushbarPosition.TOP,
+                      ).show(context);
                     },
                     child: Text("Submit"))
               ],
